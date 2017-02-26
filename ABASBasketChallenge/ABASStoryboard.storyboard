@@ -12,7 +12,6 @@
         <!--Navigation Controller-->
         <scene sceneID="G5j-eQ-7hb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qia-d7-9lh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="mainNavigation" id="W5i-JQ-C7k" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Wn-EN-KBU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -22,13 +21,13 @@
                         <segue destination="UI1-mb-xat" kind="relationship" relationship="rootViewController" id="avo-tr-r9w"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qia-d7-9lh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1341" y="34"/>
         </scene>
         <!--Add Item View Controller-->
         <scene sceneID="h9a-AO-6Xw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EAv-0F-mVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="addItemController" id="UI1-mb-xat" customClass="ABASAddItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iu2-y5-Uwl"/>
@@ -37,12 +36,62 @@
                     <view key="view" contentMode="scaleToFill" id="2MF-NG-3wM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gwn-0e-KG4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UI1-mb-xat" id="27J-0a-YfG"/>
+                                    <outlet property="delegate" destination="UI1-mb-xat" id="O6f-YD-hqf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="z7a-Tn-pb3"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Gwn-0e-KG4" id="6Ih-yB-izM"/>
+                        <segue destination="Ik7-Cs-WNb" kind="show" identifier="viewBasketController" id="YJY-Wb-YBj"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EAv-0F-mVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-479" y="34"/>
+            <point key="canvasLocation" x="-474.39999999999998" y="33.733133433283363"/>
+        </scene>
+        <!--View Basket View Controller-->
+        <scene sceneID="YpP-fT-Pld">
+            <objects>
+                <viewController storyboardIdentifier="viewBasketViewController" id="Ik7-Cs-WNb" customClass="ABASViewBasketViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zlw-Yz-6Vb"/>
+                        <viewControllerLayoutGuide type="bottom" id="cCW-PW-Rdf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="236-mo-Y4F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MlD-CI-t3X">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ik7-Cs-WNb" id="aNa-sh-jHF"/>
+                                    <outlet property="delegate" destination="Ik7-Cs-WNb" id="qcX-Wo-eVL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="MlD-CI-t3X" id="MLN-Mo-YBk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIR-qm-11q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496.80000000000001" y="33.733133433283363"/>
         </scene>
     </scenes>
 </document>

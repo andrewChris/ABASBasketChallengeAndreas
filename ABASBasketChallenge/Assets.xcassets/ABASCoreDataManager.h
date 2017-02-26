@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+@class Basket;
 
 @interface ABASCoreDataManager : NSObject
 
@@ -15,6 +16,11 @@
 
 + (id)sharedInstance;
 
+- (void)performStartUpActivities;
 - (void)saveContext;
+
+- (void)createBasketWithId:(NSString *)iD withName:(NSString *)name;
+- (NSArray *)getBasketItems;
+- (Basket *)getBasket;
 
 @end

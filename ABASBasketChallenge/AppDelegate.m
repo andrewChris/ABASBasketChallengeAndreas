@@ -24,6 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self configureStubs];
+    [[ABASCoreDataManager sharedInstance] performStartUpActivities];
     
     return YES;
 }

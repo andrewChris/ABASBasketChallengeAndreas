@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BasketItem;
+@class ABASBasketCell;
+
+@protocol ABASBasketCellDelegate <NSObject>
+
+- (void)removeItemWithCell:(ABASBasketCell *)cell;
+
+@end
 
 @interface ABASBasketCell : UITableViewCell
+
+@property (nonatomic, assign) id<ABASBasketCellDelegate> delegate;
+
++ (UINib *)nib;
++ (NSString *)cellReuseIdentifier;
+
+- (void)setDataModel:(BasketItem *)basketItem;
 
 @end

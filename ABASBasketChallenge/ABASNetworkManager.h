@@ -10,8 +10,11 @@
 
 @interface ABASNetworkManager : NSObject
 
+typedef void (^serviceCompletionBlock)(BOOL success, NSString *iD, NSString *name);
+typedef void (^basketItemCompletionBlock)(BOOL success, NSDictionary *responseDict);
+
 + (id)sharedInstance;
 
-- (void)getBasketData;
+- (void)createNewBasketWithCompletion:(serviceCompletionBlock)completion;
 
 @end

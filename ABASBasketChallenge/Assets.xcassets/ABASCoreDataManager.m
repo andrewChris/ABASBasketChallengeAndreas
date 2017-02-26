@@ -11,6 +11,12 @@
 #import "BasketItem+CoreDataClass.h"
 #import "BasketItemType+CoreDataClass.h"
 #import "ABASConstants.h"
+#import "ABASNetworkManager.h"
+
+@interface ABASCoreDataManager ()
+
+
+@end
 
 @implementation ABASCoreDataManager
 
@@ -24,18 +30,141 @@
     return sharedDataManager;
 }
 
-#pragma mark - Basket 
+#pragma mark - Config
 
-- (Basket *)createBasket
+#pragma mark - Parse Plists
+
+- (NSDictionary *)parseJSONFileWithFileName:(NSString *)fileName
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"json"];
+    NSError *jsonError = nil;
+    
+    if(filePath == nil)
+    {
+        NSLog(@"Cannot read JSON file with file name: %@", fileName);
+        return nil;
+    }
+    
+    NSDictionary *resultsDict = [NSJSONSerialization
+                                 JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                 options:kNilOptions
+                                 error:&jsonError];
+    
+    if(resultsDict == NULL || resultsDict == nil)
+    {
+        NSLog(@"Unable to read JSON file with error: %@", jsonError);
+    }
+    
+    return resultsDict;
+}
+
+- (NSDictionary *)getConfigurationFromFileName:(NSString *)fileName
+{
+    NSDictionary *resultsDict = [self parseJSONFileWithFileName:fileName];
+    
+    if(resultsDict == NULL || resultsDict == nil)
+    {
+        return nil;
+    }
+    
+    return resultsDict;
+}
+
+
+- (NSInteger)getCountFromEntity:(NSString *)entityName
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedContext]];
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    NSInteger count = [[self managedContext] countForFetchRequest:request
+                                                            error:&error];
+    
+    if(error !=nil)
+    {
+        NSLog(@"Error pre pre populating equipment");
+        return -1;
+    }
+    
+    if(count > 0)
+    {
+        NSLog(@"Entity: %@ already exists", entityName);
+        return count;
+    }
+    
+    return count;
+}
+
+- (void)prePopulateBasketItems
+{
+    NSDictionary *basketItemTypeResultsDict = [self getConfigurationFromFileName:JSON_BASKET_ITEM_TYPE_ENTITY];
+    NSDictionary *basketItemsResultsDict = [self getConfigurationFromFileName:JSON_BASKET_ITEM_ENTITY];
+    
+    if(basketItemTypeResultsDict == nil || basketItemsResultsDict == nil)
+        return;
+    
+    NSArray *basketItemTypeArray = [basketItemTypeResultsDict valueForKey:JSON_KEY_BASKET_ITEM_TYPE_ENTITY];
+    NSArray *basketItemsArray = [basketItemsResultsDict valueForKey:JSON_KEY_BASKET_ITEM_ENTITY];
+    
+    for (NSDictionary *basketItemTypeDict in basketItemTypeArray)
+    {
+        for (NSString *key in basketItemTypeDict)
+        {
+            //In interest of time, only adding the test scenarios. Idealy i would check if the items already exist / have been removed and dynamically add / remove items
+            
+            BasketItemType *type = [NSEntityDescription insertNewObjectForEntityForName:BASKET_ITEM_TYPE_ENTITY inManagedObjectContext:[self managedContext]];
+            
+            NSLog(@"Key: %@ : %@", key, [basketItemTypeDict valueForKey:key]);
+            
+            type.id = [basketItemTypeDict valueForKey:@"id"];
+            type.cost_price = [[basketItemTypeDict valueForKey:@"price"] intValue];
+            type.name = [basketItemTypeDict valueForKey:@"name"];
+            
+            if([key isEqualToString:@"id"])
+            {
+                for (NSDictionary *itemDict in basketItemsArray)
+                {
+                    if([[itemDict valueForKey:@"id"] isEqualToString:[basketItemTypeDict valueForKey:key]])
+                    {
+                        BasketItem *item = [NSEntityDescription insertNewObjectForEntityForName:BASKET_ITEM_ENTITY inManagedObjectContext:[self managedContext]];
+                        
+                        item.id = [itemDict valueForKey:@"id"];
+                        item.price = [[itemDict valueForKey:@"price"] intValue];
+                        item.type = type;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    
+    [self saveContext];
+}
+
+- (void)performStartUpActivities
+{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if(![[standardUserDefaults valueForKey:@"kItemConfiguration"]boolValue])
+    {
+        [standardUserDefaults setObject:@"1" forKey:@"kItemConfiguration"];
+        [self prePopulateBasketItems];
+    }
+}
+
+#pragma mark - Basket
+
+- (void)createBasketWithId:(NSString *)iD withName:(NSString *)name
 {
     Basket *basket = [NSEntityDescription insertNewObjectForEntityForName:BASKET_ENTITY inManagedObjectContext:[self managedContext]];
     
     //Local date used to compare against Synced date to determine if data needs to be synced to server
     basket.lastUpdatedLocal = [NSDate date];
+    basket.id = [iD intValue];
+    basket.name = name;
     
     [self saveContext];
-    
-    return basket;
 }
 
 - (void)deleteBasket:(Basket *)basket
@@ -44,7 +173,7 @@
     [self saveContext];
 }
 
-- (NSArray *)getBasket
+- (Basket *)getBasket
 {
     NSFetchRequest *basketFetchRequest = [NSFetchRequest fetchRequestWithEntityName:BASKET_ENTITY];
     
@@ -53,9 +182,13 @@
     if (!results)
     {
         NSLog(@"Error fetching basket");
+        return nil;
     }
     
-    return results;
+    if(results.count)
+        return [results firstObject];
+    
+    return nil;
 }
 
 - (void)saveBasket:(Basket *)basket
@@ -83,7 +216,7 @@
     [self saveContext];
 }
 
-- (NSArray *)getBasketItem
+- (NSArray *)getBasketItems
 {
     NSFetchRequest *basketItemFetchRequest = [NSFetchRequest fetchRequestWithEntityName:BASKET_ITEM_ENTITY];
     
@@ -103,6 +236,8 @@
 }
 
 #pragma mark - Basket Item Type
+
+
 
 - (Basket *)createBasketItemType
 {

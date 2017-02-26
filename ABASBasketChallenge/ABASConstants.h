@@ -19,6 +19,14 @@ static NSString * const BASKET_ITEM_URL = @"basketitems/";
 static NSString * const BASKET_ITEM_TYPE_URL = @"basketitemtypes/";
 static NSString * const BASE_URL = @"https://aba-systems.com.au/api/v1/";
 
+//JSON FILES
+static NSString * const JSON_BASKET_ITEM_ENTITY = @"BasketItem";
+static NSString * const JSON_BASKET_ITEM_TYPE_ENTITY = @"BasketItemType";
+
+//JSON KEYS
+static NSString * const JSON_KEY_BASKET_ITEM_ENTITY = @"basketItem";
+static NSString * const JSON_KEY_BASKET_ITEM_TYPE_ENTITY = @"basketItemType";
+
 @interface ABASConstants : NSObject
 
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3EA2461E62A8DE002ECFBF /* BasketItemType.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F3EA2451E62A8DE002ECFBF /* BasketItemType.json */; };
+		3F3EA24A1E62A9AD002ECFBF /* BasketItem.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F3EA2491E62A9AD002ECFBF /* BasketItem.json */; };
+		3F3EA24F1E62D386002ECFBF /* ABASBasketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3EA24D1E62D386002ECFBF /* ABASBasketCell.m */; };
+		3F3EA2501E62D386002ECFBF /* ABASBasketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3EA24E1E62D386002ECFBF /* ABASBasketCell.xib */; };
 		3F55BDC81E5C658100C19E5C /* ABASCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F55BDC71E5C658100C19E5C /* ABASCoreDataManager.m */; };
 		3F55BDCB1E5C669600C19E5C /* ABASConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F55BDCA1E5C669600C19E5C /* ABASConstants.m */; };
 		3F55BDD31E5C6A3F00C19E5C /* ABASAddItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F55BDD11E5C6A3F00C19E5C /* ABASAddItemCell.m */; };
@@ -15,9 +19,7 @@
 		3F6E1F631E5C5FE4006D4540 /* ABASStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6E1F621E5C5FE4006D4540 /* ABASStoryboard.storyboard */; };
 		3FF672761E5C594C009680F3 /* ABASBasketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF672751E5C594C009680F3 /* ABASBasketManager.m */; };
 		3FF6727A1E5C5BB1009680F3 /* ABASViewBasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF672781E5C5BB1009680F3 /* ABASViewBasketViewController.m */; };
-		3FF6727B1E5C5BB1009680F3 /* ABASViewBasketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF672791E5C5BB1009680F3 /* ABASViewBasketViewController.xib */; };
 		3FF6727F1E5C5D73009680F3 /* ABASAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6727D1E5C5D73009680F3 /* ABASAddItemViewController.m */; };
-		3FF672801E5C5D73009680F3 /* ABASAddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF6727E1E5C5D73009680F3 /* ABASAddItemViewController.xib */; };
 		3FF672841E5C5DEF009680F3 /* UIColor+ABASColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF672831E5C5DEF009680F3 /* UIColor+ABASColor.m */; };
 		5AD566475305639F042AA761 /* libPods-ABASBasketChallenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CC18F29A0FAEA86418BB7B /* libPods-ABASBasketChallenge.a */; };
 		93F6AD8F1E5BE00C0098FE87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F6AD8E1E5BE00C0098FE87 /* main.m */; };
@@ -48,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F3EA2451E62A8DE002ECFBF /* BasketItemType.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BasketItemType.json; sourceTree = "<group>"; };
+		3F3EA2491E62A9AD002ECFBF /* BasketItem.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BasketItem.json; sourceTree = "<group>"; };
+		3F3EA24C1E62D386002ECFBF /* ABASBasketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABASBasketCell.h; sourceTree = "<group>"; };
+		3F3EA24D1E62D386002ECFBF /* ABASBasketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABASBasketCell.m; sourceTree = "<group>"; };
+		3F3EA24E1E62D386002ECFBF /* ABASBasketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABASBasketCell.xib; sourceTree = "<group>"; };
 		3F55BDC61E5C658100C19E5C /* ABASCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABASCoreDataManager.h; path = Assets.xcassets/ABASCoreDataManager.h; sourceTree = "<group>"; };
 		3F55BDC71E5C658100C19E5C /* ABASCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABASCoreDataManager.m; path = Assets.xcassets/ABASCoreDataManager.m; sourceTree = "<group>"; };
 		3F55BDC91E5C669600C19E5C /* ABASConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABASConstants.h; sourceTree = "<group>"; };
@@ -62,10 +69,8 @@
 		3FF672751E5C594C009680F3 /* ABASBasketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABASBasketManager.m; sourceTree = "<group>"; };
 		3FF672771E5C5BB1009680F3 /* ABASViewBasketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABASViewBasketViewController.h; sourceTree = "<group>"; };
 		3FF672781E5C5BB1009680F3 /* ABASViewBasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABASViewBasketViewController.m; sourceTree = "<group>"; };
-		3FF672791E5C5BB1009680F3 /* ABASViewBasketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABASViewBasketViewController.xib; sourceTree = "<group>"; };
 		3FF6727C1E5C5D73009680F3 /* ABASAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABASAddItemViewController.h; sourceTree = "<group>"; };
 		3FF6727D1E5C5D73009680F3 /* ABASAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABASAddItemViewController.m; sourceTree = "<group>"; };
-		3FF6727E1E5C5D73009680F3 /* ABASAddItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABASAddItemViewController.xib; sourceTree = "<group>"; };
 		3FF672821E5C5DEF009680F3 /* UIColor+ABASColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ABASColor.h"; sourceTree = "<group>"; };
 		3FF672831E5C5DEF009680F3 /* UIColor+ABASColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ABASColor.m"; sourceTree = "<group>"; };
 		6BC086C23A46A3A6963E1A1C /* Pods-ABASBasketChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABASBasketChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ABASBasketChallengeTests/Pods-ABASBasketChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +125,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3EA24B1E62D36D002ECFBF /* Basket Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3F3EA24C1E62D386002ECFBF /* ABASBasketCell.h */,
+				3F3EA24D1E62D386002ECFBF /* ABASBasketCell.m */,
+				3F3EA24E1E62D386002ECFBF /* ABASBasketCell.xib */,
+			);
+			name = "Basket Cell";
+			sourceTree = "<group>";
+		};
 		3F55BDC51E5C656300C19E5C /* Core Data Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +149,6 @@
 			children = (
 				3FF6727C1E5C5D73009680F3 /* ABASAddItemViewController.h */,
 				3FF6727D1E5C5D73009680F3 /* ABASAddItemViewController.m */,
-				3FF6727E1E5C5D73009680F3 /* ABASAddItemViewController.xib */,
 			);
 			name = "Add Item";
 			sourceTree = "<group>";
@@ -144,7 +158,6 @@
 			children = (
 				3FF672771E5C5BB1009680F3 /* ABASViewBasketViewController.h */,
 				3FF672781E5C5BB1009680F3 /* ABASViewBasketViewController.m */,
-				3FF672791E5C5BB1009680F3 /* ABASViewBasketViewController.xib */,
 			);
 			name = "View Basket";
 			sourceTree = "<group>";
@@ -152,6 +165,7 @@
 		3F55BDCE1E5C6A0200C19E5C /* Custom TableView Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3F3EA24B1E62D36D002ECFBF /* Basket Cell */,
 				3F55BDCF1E5C6A1100C19E5C /* Add Item Cell */,
 			);
 			name = "Custom TableView Cells";
@@ -170,6 +184,8 @@
 		3F55BDD51E5C6B2E00C19E5C /* Stubbed Data */ = {
 			isa = PBXGroup;
 			children = (
+				3F3EA2451E62A8DE002ECFBF /* BasketItemType.json */,
+				3F3EA2491E62A9AD002ECFBF /* BasketItem.json */,
 			);
 			name = "Stubbed Data";
 			sourceTree = "<group>";
@@ -427,10 +443,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3EA2501E62D386002ECFBF /* ABASBasketCell.xib in Resources */,
 				3F55BDD41E5C6A3F00C19E5C /* ABASAddItemCell.xib in Resources */,
 				3F6E1F631E5C5FE4006D4540 /* ABASStoryboard.storyboard in Resources */,
-				3FF672801E5C5D73009680F3 /* ABASAddItemViewController.xib in Resources */,
-				3FF6727B1E5C5BB1009680F3 /* ABASViewBasketViewController.xib in Resources */,
+				3F3EA2461E62A8DE002ECFBF /* BasketItemType.json in Resources */,
+				3F3EA24A1E62A9AD002ECFBF /* BasketItem.json in Resources */,
 				93F6ADA01E5BE00C0098FE87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +619,7 @@
 				3F55BDCB1E5C669600C19E5C /* ABASConstants.m in Sources */,
 				3F55BDC81E5C658100C19E5C /* ABASCoreDataManager.m in Sources */,
 				3F55BDD91E5C73DD00C19E5C /* ABASNetworkManager.m in Sources */,
+				3F3EA24F1E62D386002ECFBF /* ABASBasketCell.m in Sources */,
 				3F55BDD31E5C6A3F00C19E5C /* ABASAddItemCell.m in Sources */,
 				93F6AD921E5BE00C0098FE87 /* AppDelegate.m in Sources */,
 				93F6AD8F1E5BE00C0098FE87 /* main.m in Sources */,

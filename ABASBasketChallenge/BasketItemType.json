@@ -1,0 +1,19 @@
+{
+    "basketItemType":[
+                {
+                "cost_price":1.50,
+                "id":"0",
+                "name":"Banana"
+                },
+                {
+                "cost_price":5.0,
+                "id":"1",
+                "name":"Detergent"
+                },
+                {
+                "cost_price":0.50,
+                "id":"2",
+                "name":"Pasta"
+                }
+                ]
+}
