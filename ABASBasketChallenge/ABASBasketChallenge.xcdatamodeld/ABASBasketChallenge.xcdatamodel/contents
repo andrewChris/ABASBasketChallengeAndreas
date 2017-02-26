@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Basket" representedClassName="Basket" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastSynced" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastUpdatedLocal" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="contents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BasketItem" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="BasketItem" representedClassName="BasketItem" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BasketItemType" syncable="YES"/>
+    </entity>
+    <entity name="BasketItemType" representedClassName="BasketItemType" syncable="YES" codeGenerationType="class">
+        <attribute name="cost_price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Basket" positionX="261" positionY="189" width="128" height="120"/>
+        <element name="BasketItem" positionX="261" positionY="198" width="128" height="90"/>
+        <element name="BasketItemType" positionX="270" positionY="207" width="128" height="90"/>
+    </elements>
+</model>
